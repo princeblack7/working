@@ -18,10 +18,16 @@ import { swapTool } from "../tools/swapTool";
 // import { dailyWorkflow } from "../workflows/dailyWorkflow";
 
 
+const mastraMemoryUrl = process.env.TURSO_DATABASE_URL ?? process.env.DATABASE_URL ?? "file:./mastra.db";
+const mastraMemoryConfig: Record<string, string> = {
+  url: mastraMemoryUrl,
+};
+if (process.env.TURSO_AUTH_TOKEN) {
+  mastraMemoryConfig.authToken = process.env.TURSO_AUTH_TOKEN;
+}
+
 const memory = new Memory({
-  storage: new LibSQLStore({
-    url: "file:./mastra.db", // Or your database URL
-  }),
+  storage: new LibSQLStore(mastraMemoryConfig),
   options: {
     // Keep last 20 messages in context
     lastMessages: 20,
