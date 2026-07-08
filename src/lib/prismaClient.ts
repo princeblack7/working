@@ -1,5 +1,5 @@
 import { PrismaClient } from "@prisma/client";
-import { PrismaLibSQL } from "@prisma/adapter-libsql";
+import { PrismaLibSql } from "@prisma/adapter-libsql";
 import { createClient } from "@libsql/client";
 
 function normalizeEnv(name?: string | undefined) {
@@ -27,7 +27,7 @@ if (usingTurso) {
   });
 
   prisma = new PrismaClient({
-    adapter: new PrismaLibSQL(libsql),
+    adapter: new PrismaLibSql(libsql),
   });
 } else {
   prisma = new PrismaClient();
