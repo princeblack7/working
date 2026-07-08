@@ -10,6 +10,14 @@ import { kaiaDeFAIAgent } from "./agents/kaiaDefaiAgent";
 // import { weatherAgent } from "./agents/weatherAgent";
 
 
+const mastraStorageUrl = process.env.TURSO_DATABASE_URL ?? process.env.DATABASE_URL ?? "file:./mastra.db";
+const mastraStorageConfig: Record<string, string> = {
+  url: mastraStorageUrl,
+};
+if (process.env.TURSO_AUTH_TOKEN) {
+  mastraStorageConfig.authToken = process.env.TURSO_AUTH_TOKEN;
+}
+
 export const mastra: Mastra = new Mastra({
   agents: {
     kaiaDeFAIAgent,
@@ -17,9 +25,7 @@ export const mastra: Mastra = new Mastra({
   logger: new ConsoleLogger({
     level: "info",
   }),
-  storage: new LibSQLStore({
-    url: "file:./mastra.db",
-  }),
+  storage: new LibSQLStore(mastraStorageConfig),
 });
 
 // Initialize Telegram bot if token is available
