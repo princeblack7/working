@@ -4,6 +4,7 @@ generator client {
 
 datasource db {
   provider = "sqlite"
+  url = "libsql://botdefaimastra-joenationj.aws-ap-northeast-1.turso.io"
 }
 
 model Wallet {
