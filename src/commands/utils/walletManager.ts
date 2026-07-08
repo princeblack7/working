@@ -1,8 +1,7 @@
-import { PrismaClient } from "@prisma/client";
+import { prisma } from "../../lib/prismaClient";
 import { generatePrivateKey, privateKeyToAccount } from "viem/accounts";
 import crypto from "crypto";
 
-const prisma = new PrismaClient();
 const ENCRYPTION_KEY = process.env.ENCRYPTION_KEY!; // Must be 64 hex chars
 const IV_LENGTH = 16;
 

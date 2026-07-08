@@ -3,10 +3,8 @@ import { getOrCreateWallet } from "./utils/walletManager";
 import { createWalletClient, getContract, parseUnits, http } from "viem";
 import { privateKeyToAccount } from "viem/accounts";
 import bUSDTAbi from "../abi/usdt_abi.json";
-import { PrismaClient } from "@prisma/client";
+import { prisma } from "../lib/prismaClient";
 import { botChainExplorerUrl, botChainTestnet } from "../lib/botChainConfig";
-
-const prisma = new PrismaClient();
 
 export async function transferUSDTCommand(bot: TelegramBot, msg: TelegramBot.Message) {
   const chatId = msg.chat.id;

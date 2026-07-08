@@ -4,10 +4,8 @@ import TelegramBot from "node-telegram-bot-api";
 import { getOrCreateWallet } from "./utils/walletManager";
 import { createWalletClient, parseEther, http } from "viem";
 import { privateKeyToAccount } from "viem/accounts";
-import { PrismaClient } from "@prisma/client";
+import { prisma } from "../lib/prismaClient";
 import { botChainExplorerUrl, botChainTestnet } from "../lib/botChainConfig";
-
-const prisma = new PrismaClient();
 
 export async function transferBOTCommand(bot: TelegramBot, msg: TelegramBot.Message) {
   const chatId = msg.chat.id;
