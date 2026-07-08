@@ -24,9 +24,9 @@
     "@mastra/libsql": "^0.10.2",
     "@mastra/mcp": "^0.10.3",
     "@mastra/memory": "^0.10.3",
-    "@prisma/client": "6.13.0",
-    "@prisma/adapter-libsql": "latest",
-    "@libsql/client": "latest",
+    "@prisma/client": "7.8.0",
+    "@prisma/adapter-libsql": "7.8.0",
+    "@libsql/client": "^0.17.4",
     "axios": "^1.11.0",
     "better-sqlite3": "^12.2.0",
     "dotenv": "^16.5.0",
@@ -39,7 +39,7 @@
   "devDependencies": {
     "@types/node": "^22.15.32",
     "@types/node-telegram-bot-api": "^0.64.9",
-    "prisma": "^6.13.0",
+    "prisma": "7.8.0",
     "ts-node": "^10.9.2",
     "tsx": "^4.20.3",
     "typescript": "^5.8.3"
