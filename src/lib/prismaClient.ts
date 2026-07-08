@@ -16,7 +16,7 @@ if (process.env.TURSO_DATABASE_URL) {
   });
 
   prisma = new PrismaClient({
-    adapter: new PrismaLibSQL(libsql),
+    adapter: new PrismaLibSql(libsql),
   });
 } else {
   prisma = new PrismaClient();
